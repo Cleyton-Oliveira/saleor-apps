@@ -1,0 +1,69 @@
+{
+  "name": "saleor-app-data-importer",
+  "version": "1.5.0",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm generate && NODE_OPTIONS='--inspect' next dev",
+    "build": "pnpm generate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "fetch-schema": "curl https://raw.githubusercontent.com/saleor/saleor/${npm_package_saleor_schemaVersion}/saleor/graphql/schema.graphql > graphql/schema.graphql",
+    "generate": "graphql-codegen",
+    "test": "vitest",
+    "test:ci": "CI=true vitest --coverage"
+  },
+  "saleor": {
+    "schemaVersion": "3.10"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@material-ui/lab": "4.0.0-alpha.61",
+    "@saleor/app-sdk": "0.37.1",
+    "@saleor/apps-shared": "workspace:*",
+    "@saleor/macaw-ui": "^0.7.2",
+    "@sentry/nextjs": "^7.39.0",
+    "@urql/exchange-auth": "^1.0.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "clsx": "^1.2.1",
+    "dot-object": "^2.1.4",
+    "graphql": "^16.6.0",
+    "graphql-tag": "^2.12.6",
+    "jose": "^4.11.2",
+    "jsdom": "^20.0.3",
+    "next": "13.1.6",
+    "nuvo-react": "^1.22.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "urql": "^3.0.3",
+    "usehooks-ts": "^2.9.1",
+    "vite": "^4.1.1",
+    "vitest": "^0.28.4",
+    "zod": "^3.20.2"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "3.2.2",
+    "@graphql-codegen/introspection": "3.0.1",
+    "@graphql-codegen/schema-ast": "^3.0.1",
+    "@graphql-codegen/typed-document-node": "3.0.2",
+    "@graphql-codegen/typescript": "3.0.2",
+    "@graphql-codegen/typescript-operations": "3.0.2",
+    "@graphql-codegen/typescript-urql": "^3.7.0",
+    "@graphql-codegen/urql-introspection": "2.2.1",
+    "@graphql-typed-document-node/core": "^3.1.1",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/dot-object": "^2.1.2",
+    "@types/node": "^18.8.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitest/coverage-c8": "^0.28.4",
+    "eslint": "^8.33.0",
+    "eslint-config-saleor": "workspace:*",
+    "typescript": "4.9.5"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --cache --fix",
+    "*.{js,ts,tsx,css,md,json}": "prettier --write"
+  }
+}
